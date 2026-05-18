@@ -4,11 +4,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_todolist/onboarding.dart';
 import 'util.dart';
 
-void main() => runApp(App());
+void main() => runApp(const App());
 
 class App extends StatefulWidget {
-  App({Key key}) : super(key: key);
+  const App({Key? key}) : super(key: key);
 
+  @override
   _AppState createState() => _AppState();
 }
 
@@ -16,11 +17,10 @@ class _AppState extends State<App> {
   @override
   void initState() {
     SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
+      const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent, //top bar color
       ),
     );
-    // SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
     super.initState();
   }
 
@@ -32,7 +32,7 @@ class _AppState extends State<App> {
         canvasColor: CustomColors.GreyBackground,
         fontFamily: 'rubik',
       ),
-      home: Onboarding(),
+      home: const Onboarding(),
     );
   }
 }

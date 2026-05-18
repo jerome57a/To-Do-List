@@ -4,8 +4,9 @@ import 'util.dart';
 import 'package:flutter_todolist/empty.dart';
 
 class Onboarding extends StatefulWidget {
-  Onboarding({Key key}) : super(key: key);
+  const Onboarding({Key? key}) : super(key: key);
 
+  @override
   _OnboardingState createState() => _OnboardingState();
 }
 
@@ -24,7 +25,7 @@ class _OnboardingState extends State<Onboarding> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width / 1.2,
           child: Column(
             children: <Widget>[
@@ -39,15 +40,15 @@ class _OnboardingState extends State<Onboarding> {
                 flex: 3,
                 child: Column(
                   children: <Widget>[
-                    Text(
+                    const Text(
                       'Reminders made simple',
                       style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w500,
                           color: CustomColors.TextHeader),
                     ),
-                    SizedBox(height: 15),
-                    Text(
+                    const SizedBox(height: 15),
+                    const Text(
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque erat in blandit luctus.',
                       style: TextStyle(
                           fontSize: 17,
@@ -61,24 +62,21 @@ class _OnboardingState extends State<Onboarding> {
               ),
               Expanded(
                 flex: 1,
-                child: RaisedButton(
+                child: ElevatedButton(
                   onPressed: () {
-                    // HERO-ANIMATION: https://github.com/flutter/flutter/issues/28041
-                    // Navigator.of(context).pushReplacement(
-                    //   PageRouteBuilder(
-                    //     transitionDuration: Duration(seconds: 1),
-                    //     pageBuilder: (_, __, ___) => Empty(),
-                    //   ),
-                    // );
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => Empty()),
+                      MaterialPageRoute(builder: (context) => const Empty()),
                     );
                   },
-                  textColor: Colors.white,
-                  padding: const EdgeInsets.all(0.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.transparent,
+                    shadowColor: Colors.transparent,
+                    padding: const EdgeInsets.all(0.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
                   ),
                   child: Container(
                     width: MediaQuery.of(context).size.width / 1.4,
@@ -103,8 +101,8 @@ class _OnboardingState extends State<Onboarding> {
                       ],
                     ),
                     padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-                    child: Center(
-                      child: const Text(
+                    child: const Center(
+                      child: Text(
                         'Get Started',
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w500),
